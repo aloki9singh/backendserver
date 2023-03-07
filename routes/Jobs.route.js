@@ -8,7 +8,7 @@ router.get("/getjobs", async (req, res) => {
     var jobs = await JobsModel.find({ companyname: req.query.companyname });
     res.send(jobs);
   } else if (req.query == "contract") {
-    var jobs = await JobsModel.find({ companyname: req.query.contract });
+    var jobs = await JobsModel.find({ contract: req.query.contract });
     res.send(jobs);
   } else {
     var jobs = await JobsModel.find();
