@@ -15,10 +15,9 @@ userRouter.get("/", async (req, res) => {
   }
 });
 
-
 userRouter.post("/signup", async (req, res) => {
-  const { name, email, password} = req.body;
-   
+  const { name, email, password } = req.body;
+
   try {
     const salt = 6;
     bcrypt.hash(password, salt, async (err, hash) => {
@@ -86,8 +85,6 @@ userRouter.post("/login", async (req, res) => {
     });
   }
 });
-
-
 
 module.exports = {
   userRouter,
