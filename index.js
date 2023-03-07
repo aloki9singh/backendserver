@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to  App");
 });
 app.use("/api", userRouter);
-app.use("/api", router);
+app.use("/api2", router);
 
 app.listen(process.env.PORT, async (req, res) => {
   try {
