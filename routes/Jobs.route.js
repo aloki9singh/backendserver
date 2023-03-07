@@ -4,14 +4,17 @@ const { JobsModel } = require("../model/JobsModel");
 const router = Router();
 
 router.get("/getjobs", async (req, res) => {
-  if (req.query == "companyname") {
-    var jobs = await JobsModel.find({ companyname: req.query.companyname });
+  // var jobs = await JobsModel.find({contract:req.query.contract});
+  // res.send(jobs);
+  var jobs;
+  if (req.query.companyname) {
+    jobs = await JobsModel.find({ companyname: req.query.companyname });
     res.send(jobs);
-  } else if (req.query == "contract") {
-    var jobs = await JobsModel.find({ contract: req.query.contract });
+  } else if (req.query.contract) {
+    jobs = await JobsModel.find({ contract: req.query.contract });
     res.send(jobs);
   } else {
-    var jobs = await JobsModel.find();
+    jobs = await JobsModel.find();
     res.send(jobs);
   }
 });
