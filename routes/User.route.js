@@ -7,7 +7,7 @@ require("dotenv").config();
 
 userRouter.get("/", async (req, res) => {
   try {
-    const users = await UserModel.find({domain: 'masaischool.com'});
+    const users = await UserModel.find();
     res.send(users);
   } catch (err) {
     console.log({ err: err });
