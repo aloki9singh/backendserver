@@ -25,7 +25,7 @@ userRouter.post("/signup", async (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        const user = new UserModel({ name, email, password: hash ,bio,phone,image});
+        const user = new UserModel({ name, email, password: hash });
         await user.save();
 
         res.status(201).json({
